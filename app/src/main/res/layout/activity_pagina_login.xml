@@ -31,7 +31,7 @@
         android:ems="10"
         android:fontFamily="sans-serif-condensed"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:hint="Username"
         android:textColorHighlight="#ea5c5a"
         android:textColorLink="#ea5c5a"
         app:layout_constraintBottom_toTopOf="@+id/passBox"
