@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sara.lowtoneapp">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".PaginaLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Homepage" />
+        <activity android:name=".Reg" />
+        <activity android:name=".Reg1Citizen" />
+        <activity android:name=".Reg1Local" />
+        <activity android:name=".SchermataGioco" />
+        <activity android:name=".SchermataDaily" />
+        <activity android:name=".Reg2Local" />
+        <activity android:name=".Reg2Citizen" />
+        <activity android:name=".SchermataMensile" />
+        <activity android:name=".SchermataWeekly" />
+        <activity android:name=".GetReward" />
+        <activity android:name=".profile" />
+        <activity android:name=".ProvaBD"></activity>
+    </application>
+
+</manifest>
