@@ -35,6 +35,11 @@ public class PaginaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_login);
 
+        if(SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, PaginaLogin.class));
+            return;
+        }
         userBox = (EditText) findViewById(R.id.userBox);
         passBox = (EditText) findViewById(R.id.passBox);
 
@@ -92,12 +97,8 @@ public class PaginaLogin extends AppCompatActivity {
                                             obj.getString("username"),
                                             obj.getString("email")
                                         );
-
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        "User login successful",
-                                        Toast.LENGTH_LONG
-                                ).show();
+                                startActivity(new Intent(getApplicationContext(), profile.class));
+                                finish();
                             } else {
                                 Toast.makeText(
                                         getApplicationContext(),

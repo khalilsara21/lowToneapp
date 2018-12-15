@@ -52,5 +52,17 @@ public class SharedPrefManager {
         return true;
     }
 
+    //metodo che mi ritorna l'username se è disponibile oppure il valore null
+    public String getUsername() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USERNAME, null);
+    }
+
+    //metodo che mi ritorna l'email se è disponibile oppure il valore null
+    public String getUserEmail() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_EMAIL, null);
+    }
+
 }
 

@@ -1,12 +1,14 @@
 package com.example.sara.lowtoneapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -33,6 +35,13 @@ public class ProvaBD extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prova_bd);
+
+
+        if(SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, profile.class));
+            return;
+        }
 
         nome = (EditText) findViewById(R.id.nome_bd);
         cognome = (EditText) findViewById(R.id.cognome);
