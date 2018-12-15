@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,7 @@ import java.util.Map;
 
 public class ProvaBD extends AppCompatActivity implements View.OnClickListener{
 
-    EditText nome, cognome, email, username, password;
+    EditText nome, cognome, email, username, password, confpassword;
     Button btnReg;
 
     ProgressDialog progressDialog;
@@ -48,7 +49,7 @@ public class ProvaBD extends AppCompatActivity implements View.OnClickListener{
         email = (EditText) findViewById(R.id.email);
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
-
+        confpassword = (EditText) findViewById(R.id.confpassword);
         btnReg = (Button) findViewById(R.id.btnReg);
 
         progressDialog = new ProgressDialog(this);
@@ -69,7 +70,61 @@ public class ProvaBD extends AppCompatActivity implements View.OnClickListener{
         final String email2 = email.getText().toString().trim();
         final String username2 = username.getText().toString().trim();
         final String password2 = password.getText().toString().trim();
+        final String confpassword2 = confpassword.getText().toString().trim();
 
+        if (nome2.isEmpty()) {
+            nome.setError("Name is required");
+            nome.requestFocus();
+            return;
+        }
+
+        if (cognome2.isEmpty()) {
+            cognome.setError("Surname is required");
+            cognome.requestFocus();
+            return;
+        }
+
+        if (email2.isEmpty()) {
+            email.setError("Email is required");
+            email.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email2).matches()) {
+            email.setError("Please enter a valid email!");
+            email.requestFocus();
+            return;
+        }
+
+        if (username2.isEmpty()) {
+            username.setError("Username is required");
+            username.requestFocus();
+            return;
+        }
+
+        if (password2.isEmpty()) {
+            password.setError("Password is required");
+            password.requestFocus();
+            return;
+        }
+
+        if (password2.length()<6) {
+            password.setError("Minimum lenght of password should be 6");
+            password.requestFocus();
+            return;
+        }
+
+        if (confpassword2.isEmpty()) {
+            password.setError("Confirm Password is required");
+            password.requestFocus();
+            return;
+        }
+
+        if (!password2.equals(confpassword2)) {
+            confpassword.setError("Password is different");
+            confpassword.requestFocus();
+            return;
+        }
 
         progressDialog.setMessage("Registering user...");
         progressDialog.show();
@@ -78,12 +133,9 @@ public class ProvaBD extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
+                    startActivity(new Intent(getApplicationContext(), PaginaLogin.class));
+                    finish();
 
             }
         }, new Response.ErrorListener() {

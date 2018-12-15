@@ -37,7 +37,7 @@ public class PaginaLogin extends AppCompatActivity {
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, PaginaLogin.class));
+            startActivity(new Intent(this, profile.class));
             return;
         }
         userBox = (EditText) findViewById(R.id.userBox);
@@ -78,6 +78,18 @@ public class PaginaLogin extends AppCompatActivity {
     public void userLogin() {
         final String username = userBox.getText().toString().trim();
         final String password = passBox.getText().toString().trim();
+
+        if (username.isEmpty()) {
+            userBox.setError("Username is required");
+            userBox.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            passBox.setError("Password is required");
+            passBox.requestFocus();
+            return;
+        }
 
         progressDialog.show();
 
