@@ -3,6 +3,7 @@ package com.example.sara.lowtoneapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,11 @@ public class PaginaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_login);
 
+        ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+        getSupportActionBar().setTitle("My new title"); // set the top title
+        String title = actionBar.getTitle().toString(); // get the title
+        actionBar.hide(); // or even hide the actionbar
+
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, profile.class));
@@ -63,11 +69,6 @@ public class PaginaLogin extends AppCompatActivity {
                 openRegistrazione();
             }
         });
-    }
-
-    public void openHomepage() {
-        Intent intent = new Intent(this, ProvaBD.class);
-        startActivity(intent);
     }
 
     public void openRegistrazione() {

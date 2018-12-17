@@ -1,6 +1,7 @@
 package com.example.sara.lowtoneapp;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,21 +19,16 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        play = (Button) findViewById(R.id.play);
+        ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+        getSupportActionBar().setTitle("Homepage"); // set the top title
+        String title = actionBar.getTitle().toString(); // get the title
 
-        profilo = (ImageView) findViewById(R.id.profilo);
+        play = (Button) findViewById(R.id.play);
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openSchermataGioco();
-            }
-        });
-
-        profilo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProfilo();
             }
         });
     }
@@ -42,8 +38,4 @@ public class Homepage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openProfilo()    {
-        Intent intent = new Intent(this, profile.class);
-        startActivity(intent);
-    }
 }

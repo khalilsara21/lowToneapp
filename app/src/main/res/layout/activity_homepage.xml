@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Homepage">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/includetoolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="sans-serif-smallcaps"/>
+    tools:context=".Homepage"
+    android:textAlignment="center">
 
     <Button
         android:id="@+id/getbracelet"
@@ -24,18 +13,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Get your bracelet"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/includetoolbar"
-        android:background="@color/colorPrimary"
-        android:textColor="#ffffff"
-        android:fontFamily="sans-serif-smallcaps"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/play"
@@ -84,57 +73,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="REPORT PROBLEMS"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/localpoints"
+        android:layout_marginBottom="20dp"
         android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="REPORT PROBLEMS"
         android:textColor="#ffffff"
-        android:fontFamily="sans-serif-smallcaps"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="30dp"
-        android:text="Time: 00:00"
-        android:textColor="@android:color/black"
-        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/problem"
-        android:fontFamily="sans-serif-smallcaps"/>
-
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Homepage"
-        android:textColor="#ffffff"
-        android:textSize="28dp"
-        app:layout_constraintBottom_toBottomOf="@id/includetoolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/profilo"/>
-
-    <ImageView
-        android:id="@+id/profilo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/includetoolbar"
-        app:layout_constraintEnd_toEndOf="@+id/includetoolbar"
-        app:layout_constraintStart_toEndOf="@id/label"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_preferences" />
+        app:layout_constraintTop_toBottomOf="@+id/localpoints" />
 
 </android.support.constraint.ConstraintLayout>
