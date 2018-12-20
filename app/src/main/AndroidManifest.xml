@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sara.lowtoneapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,18 +19,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Homepage" />
-        <activity android:name=".Reg" />
         <activity android:name=".Reg1Citizen" />
         <activity android:name=".Reg1Local" />
-        <activity android:name=".SchermataGioco" />
-        <activity android:name=".SchermataDaily" />
         <activity android:name=".Reg2Local" />
         <activity android:name=".Reg2Citizen" />
-        <activity android:name=".SchermataMensile" />
-        <activity android:name=".SchermataWeekly" />
         <activity android:name=".GetReward" />
         <activity android:name=".profile" />
-        <activity android:name=".ProvaBD"></activity>
+        <activity android:name=".RegCitizen" />
+        <activity
+            android:name=".Sing_in"
+            android:parentActivityName=".PaginaLogin" />
     </application>
 
 </manifest>

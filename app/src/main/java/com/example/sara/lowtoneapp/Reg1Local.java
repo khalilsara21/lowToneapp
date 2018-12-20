@@ -35,7 +35,7 @@ public class Reg1Local extends AppCompatActivity {
     }
 
     public void openReg() {
-        Intent intent = new Intent(this, Reg.class);
+        Intent intent = new Intent(this, PaginaLogin.class);
         startActivity(intent);
     }
 

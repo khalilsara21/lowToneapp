@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,14 +32,16 @@ public class PaginaLogin extends AppCompatActivity {
     private TextView registrati;
     private ProgressDialog progressDialog;
 
+    private CheckBox mCheckBoxRemember;
+    private SharedPreferences mPrefs;
+    private static final String PREFS_NAME = "PrefsFile";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_login);
 
         ActionBar actionBar = getSupportActionBar(); // or getActionBar();
-        getSupportActionBar().setTitle("My new title"); // set the top title
-        String title = actionBar.getTitle().toString(); // get the title
         actionBar.hide(); // or even hide the actionbar
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
@@ -46,8 +49,12 @@ public class PaginaLogin extends AppCompatActivity {
             startActivity(new Intent(this, profile.class));
             return;
         }
+
+        mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
         userBox = (EditText) findViewById(R.id.userBox);
         passBox = (EditText) findViewById(R.id.passBox);
+        mCheckBoxRemember = (CheckBox) findViewById(R.id.rememberme);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
@@ -61,7 +68,7 @@ public class PaginaLogin extends AppCompatActivity {
             }
         });
 
-        registrati = (TextView) findViewById(R.id.registrati);
+        registrati = (TextView) findViewById(R.id.cliccaqui);
 
         registrati.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +76,28 @@ public class PaginaLogin extends AppCompatActivity {
                 openRegistrazione();
             }
         });
+
+        getPreferencesData();
+    }
+
+    private void getPreferencesData() {
+        SharedPreferences sp = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        if (sp.contains("pref_name")) {
+            String u = sp.getString("pref_name", "not found");
+            userBox.setText(u.toString());
+        }
+        if (sp.contains("pref_pass")) {
+            String p = sp.getString("pref_pass", "not found");
+            passBox.setText(p.toString());
+        }
+        if (sp.contains("pref_check")) {
+            Boolean b = sp.getBoolean("pref_check", false);
+            mCheckBoxRemember.setChecked(b);
+        }
     }
 
     public void openRegistrazione() {
-        Intent intent = new Intent(this, ProvaBD.class);
+        Intent intent = new Intent(this, Sing_in.class);
         startActivity(intent);
     }
 
@@ -90,6 +115,19 @@ public class PaginaLogin extends AppCompatActivity {
             passBox.setError("Password is required");
             passBox.requestFocus();
             return;
+        }
+
+        if (mCheckBoxRemember.isChecked()) {
+            Boolean boolIsChecked = mCheckBoxRemember.isChecked();
+            SharedPreferences.Editor editor = mPrefs.edit();
+            editor.putString("pref_name", userBox.getText().toString());
+            editor.putString("pref_pass", passBox.getText().toString());
+            editor.putBoolean("pref_check", boolIsChecked);
+            editor.apply();
+            Toast.makeText(getApplicationContext(), "Setting have been saved.",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            mPrefs.edit().clear().apply();
         }
 
         progressDialog.show();
@@ -110,7 +148,11 @@ public class PaginaLogin extends AppCompatActivity {
                                             obj.getString("username"),
                                             obj.getString("email")
                                         );
-                                startActivity(new Intent(getApplicationContext(), profile.class));
+                                startActivity(new Intent(getApplicationContext(), Homepage.class));
+
+                                //remember me
+                                userBox.getText().clear();
+                                passBox.getText().clear();
                                 finish();
                             } else {
                                 Toast.makeText(

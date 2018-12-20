@@ -37,7 +37,7 @@ public class Reg1Citizen extends AppCompatActivity {
 
 
     public void openReg() {
-        Intent intent = new Intent(this, Reg.class);
+        Intent intent = new Intent(this, PaginaLogin.class);
         startActivity(intent);
     }
 

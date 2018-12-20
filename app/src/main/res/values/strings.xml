@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">LowToneApp</string>
-    <string name="_puntiTotali">0</string>
-    <string name="team">Team :</string>
-    <string name="read_blue">Read/Blue</string>
-    <string name="button">Button</string>
-    <string name="superfish94">SuperFish94</string>
-    <string name="superfish942">SuperFish94:</string>
-    <string name="DailyHours">Bo</string>
+
+
 </resources>
