@@ -2,6 +2,7 @@ package com.example.sara.lowtoneapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -31,6 +32,12 @@ public class RegCitizen extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_citizen);
+
+        //TOOLBAR
+        ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+        getSupportActionBar().setTitle("SIGN-IN CITIZEN"); // set the top title
+        String title = actionBar.getTitle().toString(); // get the title
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {

@@ -7,80 +7,90 @@
     tools:context=".Homepage"
     android:textAlignment="center">
 
+
     <Button
-        android:id="@+id/getbracelet"
+        android:id="@+id/getBracelet"
         android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_background"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_height="55dp"
         android:text="Get your bracelet"
-        app:layout_constraintBottom_toTopOf="@+id/play"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/button_background"
+        android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/leaveBracelet"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        android:text="Leave your Bracelet"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/button_background"
+        android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/status"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        android:background="@drawable/button_background"
+        android:text="Your Status"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/findLocal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/getBracelet" />
+
+    <Button
+        android:id="@+id/findLocal"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        android:text="Find Locals"
+        app:layout_constraintTop_toBottomOf="@id/status"
+        app:layout_constraintBottom_toTopOf="@id/play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/button_background"
+        android:textColor="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/play"
         android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="PLAY!"
-        app:layout_constraintBottom_toTopOf="@+id/localpoints"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="55dp"
+        android:text="Play"
+        app:layout_constraintTop_toBottomOf="@id/findLocal"
+        app:layout_constraintBottom_toTopOf="@id/timer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getbracelet"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/button_background"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="sans-serif-smallcaps"/>
+        android:textColor="@color/colorPrimary"/>
 
-    <Button
-        android:id="@+id/localpoints"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="MAPS OF LOCALS"
-        app:layout_constraintBottom_toTopOf="@+id/problem"
+    <ImageView
+        android:id="@+id/timer"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toTopOf="@id/problem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/play"
-        android:background="@drawable/button_background"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="sans-serif-smallcaps"/>
+        app:layout_constraintTop_toBottomOf="@id/play"
+        app:srcCompat="@drawable/timer" />
+
 
     <Button
         android:id="@+id/problem"
-        android:layout_width="220dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorPrimary"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="REPORT PROBLEMS"
-        android:textColor="#ffffff"
+        android:text="Report Problems"
+        app:layout_constraintTop_toBottomOf="@id/timer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/localpoints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/button_background"
+        android:textColor="#606161"/>
+
 
 </android.support.constraint.ConstraintLayout>

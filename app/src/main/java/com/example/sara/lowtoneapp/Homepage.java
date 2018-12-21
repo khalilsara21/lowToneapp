@@ -14,8 +14,7 @@ import android.widget.Toast;
 
 public class Homepage extends AppCompatActivity {
 
-
-    ImageView profilo;
+    Button statusBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +25,22 @@ public class Homepage extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar(); // or getActionBar();
         getSupportActionBar().setTitle("Homepage"); // set the top title
         String title = actionBar.getTitle().toString(); // get the title
+
+        statusBtn = (Button) findViewById(R.id.status);
+
+        statusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStatus();
+            }
+        });
     }
 
+    private void openStatus() {
+        Intent intent = new Intent(this, Status.class);
+        startActivity(intent);
+    }
 
-
-
-    //creazione menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -41,6 +50,9 @@ public class Homepage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.profileicon:
+                startActivity(new Intent(this, profile.class));
+                break;
             case R.id.menuLogout:
                 SharedPrefManager.getInstance(this).logout();
                 finish();

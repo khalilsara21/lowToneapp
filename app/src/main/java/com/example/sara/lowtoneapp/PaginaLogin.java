@@ -46,7 +46,7 @@ public class PaginaLogin extends AppCompatActivity {
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, profile.class));
+            startActivity(new Intent(this, Homepage.class));
             return;
         }
 
@@ -124,8 +124,6 @@ public class PaginaLogin extends AppCompatActivity {
             editor.putString("pref_pass", passBox.getText().toString());
             editor.putBoolean("pref_check", boolIsChecked);
             editor.apply();
-            Toast.makeText(getApplicationContext(), "Setting have been saved.",
-                    Toast.LENGTH_LONG).show();
         } else {
             mPrefs.edit().clear().apply();
         }

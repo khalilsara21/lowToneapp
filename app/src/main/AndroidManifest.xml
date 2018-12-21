@@ -19,16 +19,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".Homepage" />
-        <activity android:name=".Reg1Citizen" />
-        <activity android:name=".Reg1Local" />
-        <activity android:name=".Reg2Local" />
-        <activity android:name=".Reg2Citizen" />
-        <activity android:name=".GetReward" />
         <activity android:name=".profile" />
-        <activity android:name=".RegCitizen" />
+        <activity
+            android:name=".RegCitizen"
+            android:parentActivityName=".Sing_in" />
         <activity
             android:name=".Sing_in"
             android:parentActivityName=".PaginaLogin" />
+        <activity
+            android:name=".Status"
+            android:parentActivityName=".Homepage" />
+        <activity android:name=".RegOwner"
+            android:parentActivityName=".Sing_in"></activity>
     </application>
 
 </manifest>

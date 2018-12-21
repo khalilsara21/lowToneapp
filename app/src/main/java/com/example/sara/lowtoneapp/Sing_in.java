@@ -41,7 +41,7 @@ public class Sing_in extends AppCompatActivity {
     }
 
     public void openRegOwner() {
-        Intent intent = new Intent(this, RegCitizen.class);
+        Intent intent = new Intent(this, RegOwner.class);
         startActivity(intent);
     }
 
