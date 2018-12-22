@@ -156,6 +156,7 @@ public class RegCitizen extends AppCompatActivity implements View.OnClickListene
                 params.put("email",email2);
                 params.put("username",username2);
                 params.put("password",password2);
+                params.put("tipoutente","O");
                 return params;
             }
         };

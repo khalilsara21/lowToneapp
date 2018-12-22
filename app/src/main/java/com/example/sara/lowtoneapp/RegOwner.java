@@ -19,6 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//credo non funzioni per via del RequestHandler2
 public class RegOwner extends AppCompatActivity implements View.OnClickListener{
 
     EditText local, vat, address, n, cap, city, country, owner, username, email, password;
@@ -49,6 +50,7 @@ public class RegOwner extends AppCompatActivity implements View.OnClickListener{
         email = (EditText) findViewById(R.id.EmailOwner);
         password = (EditText) findViewById(R.id.PassOwner);
         //confpassword = (EditText) findViewById(R.id.ConfPassOwner);
+        BtnReq = (Button) findViewById(R.id.btnReg);
 
         progressDialog = new ProgressDialog(this);
 
@@ -114,6 +116,6 @@ public class RegOwner extends AppCompatActivity implements View.OnClickListener{
         };
 
 
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+        RequestHandler2.getInstance(this).addToRequestQueue(stringRequest);
     }
 }

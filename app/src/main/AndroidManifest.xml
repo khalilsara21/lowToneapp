@@ -3,7 +3,8 @@
     package="com.example.sara.lowtoneapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,8 +30,10 @@
         <activity
             android:name=".Status"
             android:parentActivityName=".Homepage" />
-        <activity android:name=".RegOwner"
-            android:parentActivityName=".Sing_in"></activity>
+        <activity
+            android:name=".RegOwner"
+            android:parentActivityName=".Sing_in" />
+        <activity android:name=".HomepageOwner"></activity>
     </application>
 
 </manifest>

@@ -97,7 +97,7 @@ public class PaginaLogin extends AppCompatActivity {
     }
 
     public void openRegistrazione() {
-        Intent intent = new Intent(this, Sing_in.class);
+        Intent intent = new Intent(this, RegCitizen.class);
         startActivity(intent);
     }
 
@@ -146,7 +146,11 @@ public class PaginaLogin extends AppCompatActivity {
                                             obj.getString("username"),
                                             obj.getString("email")
                                         );
-                                startActivity(new Intent(getApplicationContext(), Homepage.class));
+                                if(obj.getBoolean("staff")) {
+                                    startActivity(new Intent(getApplicationContext(), HomepageOwner.class));
+                                } else {
+                                    startActivity(new Intent(getApplicationContext(), Homepage.class));
+                                }
 
                                 //remember me
                                 userBox.getText().clear();
