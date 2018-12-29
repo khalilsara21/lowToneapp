@@ -39,12 +39,12 @@ public class RegCitizen extends AppCompatActivity implements View.OnClickListene
         String title = actionBar.getTitle().toString(); // get the title
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        /*
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, profile.class));
             return;
-        }
+        } */
 
         nome = (EditText) findViewById(R.id.nome_bd);
         cognome = (EditText) findViewById(R.id.cognome);

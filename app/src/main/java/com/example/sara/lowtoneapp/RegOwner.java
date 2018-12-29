@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //credo non funzioni per via del RequestHandler2
+//decidere come gestire la BD
 public class RegOwner extends AppCompatActivity implements View.OnClickListener{
 
     EditText local, vat, address, n, cap, city, country, owner, username, email, password;

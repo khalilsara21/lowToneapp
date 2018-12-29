@@ -44,11 +44,12 @@ public class PaginaLogin extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar(); // or getActionBar();
         actionBar.hide(); // or even hide the actionbar
 
+        /*
         if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, Homepage.class));
             return;
-        }
+        } */
 
         mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
@@ -64,7 +65,6 @@ public class PaginaLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userLogin();
-                //openHomepage;
             }
         });
 
@@ -80,6 +80,13 @@ public class PaginaLogin extends AppCompatActivity {
         getPreferencesData();
     }
 
+    //metodo per aprire la pagina della registrazione
+    public void openRegistrazione() {
+        Intent intent = new Intent(this, Sing_in.class);
+        startActivity(intent);
+    }
+
+    //metodo per ricordare le credenziali
     private void getPreferencesData() {
         SharedPreferences sp = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         if (sp.contains("pref_name")) {
@@ -96,11 +103,7 @@ public class PaginaLogin extends AppCompatActivity {
         }
     }
 
-    public void openRegistrazione() {
-        Intent intent = new Intent(this, RegCitizen.class);
-        startActivity(intent);
-    }
-
+    //metodo per verificare il Login
     public void userLogin() {
         final String username = userBox.getText().toString().trim();
         final String password = passBox.getText().toString().trim();

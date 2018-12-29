@@ -3,6 +3,7 @@ package com.example.sara.lowtoneapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class SharedPrefManager {
     private static SharedPrefManager mInstance;
@@ -10,7 +11,8 @@ public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "mysharedpref12";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_USER_EMAIL = "email";
-    private static final String KEY_USER_ID = "userid";
+    //private static final String KEY_USER_ID = "id";
+    // String id_S;
 
     private SharedPrefManager(Context context) {
         mCtx = context;
@@ -27,7 +29,9 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(KEY_USER_ID, id);
+        //id_S = Integer.toString(id);
+        //editor.putString(KEY_USER_ID, id_S);
+        //editor.putInt(KEY_USER_ID, id);
         editor.putString(KEY_USER_EMAIL, email);
         editor.putString(KEY_USERNAME, username);
 
@@ -63,6 +67,11 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USER_EMAIL, null);
     }
+/*
+    public String getId() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_ID, null);
+    } */
 
 }
 

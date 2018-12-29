@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class Homepage extends AppCompatActivity {
 
     Button statusBtn;
+    Button LocalMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class Homepage extends AppCompatActivity {
         String title = actionBar.getTitle().toString(); // get the title
 
         statusBtn = (Button) findViewById(R.id.status);
+        LocalMaps = (Button) findViewById(R.id.findLocal);
 
         statusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +36,18 @@ public class Homepage extends AppCompatActivity {
                 openStatus();
             }
         });
+
+        LocalMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFindLocal();
+            }
+        });
+    }
+
+    private void openFindLocal() {
+        Intent intent = new Intent(this, MapsLocal.class);
+        startActivity(intent);
     }
 
     private void openStatus() {

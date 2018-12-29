@@ -1,47 +1,60 @@
 package com.example.sara.lowtoneapp;
 
-import android.service.media.MediaBrowserService;
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import javax.xml.transform.Result;
-
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class HomepageOwner extends AppCompatActivity {
 
-    private ZXingScannerView scannerView;
+    public static TextView resultTextView;
+    Button scan_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage_owner);
-    }
 
-    public void scanCode(View view) {
-        scannerView = new ZXingScannerView(this);
-        scannerView.setResultHandler(new ZXingScannerResultHandler());
+        //TOOLBAR
+        ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+        getSupportActionBar().setTitle("Homepage"); // set the top title
+        String title = actionBar.getTitle().toString(); // get the title
 
-        setContentView(scannerView);
-        scannerView.startCamera();
+        resultTextView = (TextView) findViewById(R.id.result);
+        scan_btn = (Button) findViewById(R.id.ScanQR);
+
+        scan_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ScanCodeActivity.class));
+            }
+        });
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        scannerView.stopCamera();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_base, menu);
+        return true;
     }
 
-     class ZXingScannerResultHandler  implements ZXingScannerView.ResultHandler{
-
-        public void handleResult(com.google.zxing.Result result) {
-            String resultCode = result.getText();
-            Toast.makeText(HomepageOwner.this, resultCode, Toast.LENGTH_SHORT).show();
-
-            setContentView(R.layout.activity_homepage_owner);
-            scannerView.stopCamera();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuLogout:
+                SharedPrefManager.getInstance(this).logout();
+                finish();
+                startActivity(new Intent(this, PaginaLogin.class));
+                break;
         }
+        return true;
     }
+
+
 }
