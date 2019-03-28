@@ -10,43 +10,26 @@
         android:id="@+id/citizen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:text="CITIZEN"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgCitizen"
+        app:layout_constraintBottom_toTopOf="@id/owner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgCitizen"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        app:layout_constraintBottom_toTopOf="@+id/owner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/citizen"
-        app:srcCompat="@drawable/citizen" />
 
     <TextView
         android:id="@+id/owner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:text="OWNER"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgOwner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgCitizen" />
-
-    <ImageView
-        android:id="@+id/imgOwner"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/owner"
-        app:srcCompat="@drawable/owner" />
+        app:layout_constraintTop_toBottomOf="@+id/citizen" />
+
+
 </android.support.constraint.ConstraintLayout>

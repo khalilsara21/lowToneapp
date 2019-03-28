@@ -6,10 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Sing_in extends AppCompatActivity {
 
-    ImageView imgCitizen, imgOwner;
+    TextView Citizen, Owner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +23,18 @@ public class Sing_in extends AppCompatActivity {
         String title = actionBar.getTitle().toString(); // get the title
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        imgCitizen = (ImageView) findViewById(R.id.imgCitizen);
-        imgOwner = (ImageView) findViewById(R.id.imgOwner);
 
-        imgOwner.setOnClickListener(new View.OnClickListener() {
+        Citizen = (TextView) findViewById(R.id.citizen);
+        Owner = (TextView) findViewById(R.id.owner);
+
+        Owner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRegOwner();
             }
         });
 
-        imgCitizen.setOnClickListener(new View.OnClickListener() {
+        Citizen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRegCitizen();

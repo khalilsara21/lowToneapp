@@ -5,7 +5,7 @@ package com.example.sara.lowtoneapp;
 public class Constants {
 
     //localhost poli
-    private static final String ROOT_URL = "http://172.21.86.140/Android/v1/";
+    //private static final String ROOT_URL = "http://172.21.53.35/Android/v1/";
 
     //localhost sara
     //private static final String ROOT_URL = "http://192.168.1.182/Android/v1/";
@@ -15,6 +15,9 @@ public class Constants {
 
     //localhost sara_roma
     //private static final String ROOT_URL = "http://192.168.1.114/Android/v1/";
+
+    //localhost argentina
+    private static final String ROOT_URL = "http://192.168.0.14/Android/v1/";
 
     public static final String URL_REGISTER = ROOT_URL+"registerUser.php";
     public static final String URL_REGISTER_OWNER = ROOT_URL+"registerOwner.php";

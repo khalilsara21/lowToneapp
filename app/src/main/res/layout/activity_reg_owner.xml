@@ -100,13 +100,23 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/Owner"
+                android:id="@+id/owner_name"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="25dp"
                 android:ems="10"
-                android:hint="Owner's Name and Surname"
+                android:hint="Owner's Name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/owner_surname"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:hint="Owner's Surname"
                 android:inputType="textPersonName" />
 
             <EditText

@@ -117,8 +117,8 @@ public class RegCitizen extends AppCompatActivity implements View.OnClickListene
         }
 
         if (confpassword2.isEmpty()) {
-            password.setError("Confirm Password is required");
-            password.requestFocus();
+            confpassword.setError("Confirm Password is required");
+            confpassword.requestFocus();
             return;
         }
 

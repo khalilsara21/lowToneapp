@@ -83,6 +83,7 @@ public class PaginaLogin extends AppCompatActivity {
     //metodo per aprire la pagina della registrazione
     public void openRegistrazione() {
         Intent intent = new Intent(this, Sing_in.class);
+        //prima era sign_in
         startActivity(intent);
     }
 
